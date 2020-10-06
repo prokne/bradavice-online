@@ -1,0 +1,174 @@
+body {
+  background-color: #0f3460;
+  text-align: center;
+  margin: 0;
+  color: #eeeeee;
+  font-family: "Open Sans", sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+html {
+  padding: o;
+  scroll-behavior: smooth;
+}
+hr {
+  color: #16213e;
+  border-top: 10px dotted;
+  width: 12%;
+  margin: 50px auto;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Montserrat", sans-serif;
+}
+h1 {
+  color: #eeeeee;
+  margin: 20px;
+  font-size: 2.7rem;
+}
+h2 {
+  font-size: 2.4rem;
+}
+
+.content {
+  flex: 1;
+}
+
+/* Navigation bar */
+
+.navbar {
+  background-color: #1a1a2e;
+  padding: 30px;
+}
+
+.navbar-brand {
+  font-size: 3.5rem;
+  /* font-family: "Caveat", cursive; */
+  /* font-family: "Amarante", cursive; */
+  /* font-family: "Arima Madurai", cursive; */
+  font-family: "Satisfy", cursive;
+  padding-left: 8%;
+}
+
+.navbar-nav {
+  padding-right: 8%;
+}
+
+.nav-link {
+  font-size: 1.5rem;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+  padding-left: 4rem;
+}
+
+/*Welcome Section*/
+
+.welcome-section {
+  margin: 120px auto 80px;
+
+  line-height: 1.7;
+}
+
+.welcome-text {
+  margin-top: 70px;
+  text-align: left;
+  padding: 0 65px;
+  font-size: 1.1rem;
+}
+
+.welcome-carousel {
+  padding: 40px 70px;
+  margin: 20px;
+}
+
+.btn-registrate-now {
+  background-color: #e94560;
+  width: 23%;
+  font-size: 1.5rem;
+  padding: 13px;
+}
+
+.align-left {
+  text-align: left;
+  padding-top: 50px;
+}
+
+.align-right {
+  text-align: right;
+  padding-top: 50px;
+}
+
+.features-section {
+  background-color: #16213e;
+  padding: 120px;
+}
+
+.feature-img {
+  width: 120%;
+  border-radius: 100%;
+}
+
+.feature-heading {
+  margin: 20px auto;
+}
+.feature-text {
+  line-height: 1.8;
+  padding: 30px;
+}
+
+.trailer-section {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.trailer {
+  margin: 70px;
+  width: 52%;
+  height: 550px;
+}
+
+footer {
+  background-color: #1a1a2e;
+  width: 100%;
+  margin-top: auto;
+  padding-bottom: 30px;
+}
+.social-tags {
+  font-size: 3rem;
+  padding: 40px;
+}
+
+footer a {
+  color: #0f3460;
+}
+.social-media-icon {
+  margin: 10px;
+  height: 50%;
+  size: 8px;
+}
+.copyright {
+  margin: 0;
+}
+
+/* NEWS */
+.news {
+  padding: 50px;
+}
+
+.post {
+  text-align: justify;
+  margin: 50px auto;
+}
+.post-header {
+  text-align: left;
+}
+.post-img {
+  width: 100%;
+  height: 90%;
+  border: solid 5px #1a1a2e;
+}
