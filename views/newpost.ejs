@@ -1,0 +1,30 @@
+<%- include("partials/header") %>
+<div class="container new-post-section">
+  <h2>Nový příspěvek</h2>
+  <form action="/compose" method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="">Nadpis</label>
+      <input type="text" class="form-control" name="heading" id="" />
+    </div>
+    <div class="form-group">
+      <label for="">Obrázek</label>
+      <input type="file" class="form-control-file" name="image" id="" />
+    </div>
+    <div class="form-group">
+      <label for="">Text příspěvku</label>
+      <!-- <textarea
+        name="postBody"
+        class="form-control"
+        id=""
+        cols="30"
+        rows="10"
+      ></textarea> -->
+      <textarea id="summernote" name="postBody"></textarea>
+    </div>
+    <button class="btn btn-danger btn-lg btn-send-post" type="submit">
+      Odeslat
+    </button>
+  </form>
+</div>
+
+<%- include("partials/footer") %>

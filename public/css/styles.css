@@ -32,10 +32,26 @@ h1 {
 }
 h2 {
   font-size: 2.4rem;
+  margin: 0 0 30px;
+}
+
+h3 {
+  margin: 40px;
+}
+h4 {
+  margin: 40px 0 20px;
 }
 
 .content {
   flex: 1;
+}
+
+p {
+  line-height: 1.7;
+}
+
+a:link {
+  text-decoration: none;
 }
 
 /* Navigation bar */
@@ -47,9 +63,6 @@ h2 {
 
 .navbar-brand {
   font-size: 3.5rem;
-  /* font-family: "Caveat", cursive; */
-  /* font-family: "Amarante", cursive; */
-  /* font-family: "Arima Madurai", cursive; */
   font-family: "Satisfy", cursive;
   padding-left: 8%;
 }
@@ -70,7 +83,6 @@ h2 {
 
 .welcome-section {
   margin: 120px auto 80px;
-
   line-height: 1.7;
 }
 
@@ -91,6 +103,28 @@ h2 {
   width: 23%;
   font-size: 1.5rem;
   padding: 13px;
+  margin: 40px;
+}
+
+/* News carousel */
+
+.news-carousel-section {
+  padding: 50px;
+  background-color: #16213e;
+}
+
+.news-carousel-item {
+  padding: 20px 100px;
+}
+.news-carousel-heading {
+  font-size: 1.5rem;
+}
+
+.news-carousel .carousel-control-prev {
+  padding-right: 30px;
+}
+.news-carousel .carousel-control-next {
+  padding-left: 30px;
 }
 
 .align-left {
@@ -103,14 +137,22 @@ h2 {
   padding-top: 50px;
 }
 
+/* 
+Feature section */
+
 .features-section {
-  background-color: #16213e;
-  padding: 120px;
+  background-color: #0f3460;
+  padding: 50px 0;
 }
 
 .feature-img {
   width: 120%;
   border-radius: 100%;
+}
+
+.feature-img-left {
+  position: relative;
+  right: 30px;
 }
 
 .feature-heading {
@@ -124,6 +166,7 @@ h2 {
 .trailer-section {
   padding-top: 80px;
   padding-bottom: 80px;
+  background-color: #16213e;
 }
 
 .trailer {
@@ -167,8 +210,103 @@ footer a {
 .post-header {
   text-align: left;
 }
+.post-info ul {
+  padding: 10px 0;
+  margin: 0 0;
+}
+.post-info-item {
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 0.8rem;
+  color: #eeeeeebd;
+}
+
+.post-info-item .far {
+  margin-right: 10px;
+}
 .post-img {
   width: 100%;
-  height: 90%;
   border: solid 5px #1a1a2e;
+}
+
+/* New Post */
+
+.new-post-section {
+  margin: 50px auto;
+  text-align: left;
+}
+.new-post-section h2 {
+  margin: 50px auto;
+  padding: 0;
+}
+
+.btn-send-post {
+  background-color: #e94560;
+  border-color: #e94560;
+}
+
+.note-editing-area {
+  background-color: #1a1a2e;
+}
+
+/* Login page */
+#login {
+  text-align: center;
+}
+.login-section {
+  width: 350px;
+  margin: 20px auto;
+  padding: 20px 20px 40px;
+  border-radius: 10px;
+  background-color: #0f3460;
+}
+
+.login-input {
+  margin-bottom: 20px;
+}
+.login-header {
+  font-size: 3.5rem;
+  font-family: "Satisfy", cursive;
+  margin: 100px 0;
+}
+
+.btn-login {
+  margin: 50px 0 10px;
+}
+
+/* HOW TO CONNECT SECTION */
+.connect-section {
+  width: 85%;
+  margin: 0 auto 30px;
+  text-align: justify;
+}
+
+.connection-heading {
+  margin: 70px 0 70px;
+}
+
+.connect-section h5 {
+  margin: 30px 0 20px;
+}
+
+.connect-img {
+  display: block;
+  margin: 20px auto;
+  width: 70%;
+}
+
+.connect-section a {
+  display: inline-block;
+  color: #1a1a2e;
+  background-color: #ffcc79;
+  border: 1px solid #1a1a2e;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 0 5px 15px 0;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.connect-section a:hover {
+  background-color: #fde9c9;
 }
