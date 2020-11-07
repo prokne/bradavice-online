@@ -68,11 +68,11 @@ a:link {
 }
 
 .navbar-nav {
-  padding-right: 8%;
+  padding-right: 10%;
 }
 
 .nav-link {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
 .navbar-expand-lg .navbar-nav .nav-link {
