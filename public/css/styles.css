@@ -109,7 +109,7 @@ a:link {
 /* News carousel */
 
 .news-carousel-section {
-  padding: 50px;
+  padding: 100px 0;
   background-color: #16213e;
 }
 
@@ -269,7 +269,9 @@ footer a {
   font-family: "Satisfy", cursive;
   margin: 100px 0;
 }
-
+.error-message {
+  color: #e94560;
+}
 .btn-login {
   margin: 50px 0 10px;
 }

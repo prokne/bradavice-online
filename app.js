@@ -58,12 +58,15 @@ passport.use(
           return done(null, false, { message: "Incorrect username." });
         }
         bcrypt.compare(password, rows[0].password, (err, result) => {
+          if (err) {
+            console.log(err);
+          }
           if (result === false) {
             return done(null, false, { message: "invalid password" });
+          } else {
+            return done(null, rows[0]);
           }
         });
-
-        return done(null, rows[0]);
       }
     );
   })
@@ -177,19 +180,30 @@ app.post("/compose", (req, res) => {
 });
 
 app.get("/login", (req, res) => {
-  res.render("login");
+  res.render("login", { errorMessage: "" });
 });
 
-app.post(
-  "/login",
-  passport.authenticate("local", {
-    successRedirect: "/compose",
-    failureRedirect: "/login",
-  })
-);
+app.post("/login", function (req, res, next) {
+  passport.authenticate("local", function (err, user, info) {
+    if (err) {
+      return next(err);
+    }
+    if (!user) {
+      return res.render("login", {
+        errorMessage: "Nesprávné jméno nebo heslo",
+      });
+    }
+    req.logIn(user, function (err) {
+      if (err) {
+        return next(err);
+      }
+      return res.redirect("compose");
+    });
+  })(req, res, next);
+});
 
 app.get("/register", (req, res) => {
-  res.render("register");
+  res.render("register", { errorMessage: "" });
 });
 
 app.post("/register", (req, res) => {
@@ -202,7 +216,9 @@ app.post("/register", (req, res) => {
       }
       if (result.length > 0) {
         console.log(result);
-        console.log("user already exists");
+        res.render("register", {
+          errorMessage: "Toto uživatelské jméno již existuje",
+        });
       } else {
         const username = req.body.username;
         const password = bcrypt.hashSync(req.body.password, saltRounds);
