@@ -224,6 +224,6 @@ app.post("/register", (req, res) => {
     }
   );
 });
-app.listen("3000" || process.env.PORT, () => {
+app.listen(process.env.PORT, () => {
   console.log("Server has started on port 3000");
 });
