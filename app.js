@@ -29,18 +29,18 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //MYSQL Connection
-const con = mysql.createConnection({
+const con = mysql.createPool({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
   password: process.env.DB_PASS,
   database: process.env.DB_DB,
 });
 
-con.connect((err) => {
-  if (!err) {
-    console.log("Successfully connected to database");
-  }
-});
+// con.connect((err) => {
+//   if (!err) {
+//     console.log("Successfully connected to database");
+//   }
+// });
 
 // Passport setup
 passport.use(
