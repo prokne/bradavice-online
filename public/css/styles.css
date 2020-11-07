@@ -58,25 +58,35 @@ a:link {
 
 .navbar {
   background-color: #1a1a2e;
-  padding: 30px;
+  padding: 25px;
 }
 
 .navbar-brand {
-  font-size: 3.5rem;
+  font-size: 3.3rem;
   font-family: "Satisfy", cursive;
-  padding-left: 8%;
+  padding-left: 7%;
 }
 
 .navbar-nav {
-  padding-right: 10%;
+  margin-left: 10%;
+  width: 100%;
 }
 
 .nav-link {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
 }
 
-.navbar-expand-lg .navbar-nav .nav-link {
-  padding-left: 4rem;
+.nav-item {
+  margin-right: 5%;
+}
+
+/* .navbar-expand-lg .navbar-nav .nav-link {
+  padding-left: 40px;
+} */
+
+.social-tags-nav {
+  font-size: 1.8rem;
+  color: #0f3460;
 }
 
 /*Welcome Section*/
@@ -186,8 +196,9 @@ footer {
   padding: 40px;
 }
 
-footer a {
-  color: #0f3460;
+footer a,
+nav a {
+  color: #2a5992;
 }
 .social-media-icon {
   margin: 10px;
