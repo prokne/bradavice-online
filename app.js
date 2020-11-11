@@ -240,6 +240,10 @@ app.post("/register", (req, res) => {
     }
   );
 });
+
+app.get("/game-registration", (req, res) => {
+  res.render("game-registration", { errorMessage: "" });
+});
 app.listen(process.env.PORT, () => {
   console.log("Server has started on port 3000");
 });
