@@ -121,7 +121,7 @@
                 </div>
                 <% if (currentPost[index].postBody.length > 440){ %>
                 <p ><%-currentPost[index].postBody.slice(0,440)%> ... </p>
-                <a href="">Číst dále</a>
+                <a href="/news/<%=currentPost[index].id%>">Číst dále</a>
                 <%} else{ %>
                   <p ><%-currentPost[index].postBody%> </p>
                 <%} %>
@@ -153,7 +153,7 @@
               </div>
               <% if (currentPost[index].postBody.length > 440){ %>
                 <p ><%-currentPost[index].postBody.slice(0,440)%> ... </p>
-                <a href="">Číst dále</a>
+                <a href="/news/<%=currentPost[index].id%>">Číst dále</a>
                 <%} else{ %>
                   <p ><%-currentPost[index].postBody%> </p>
                 <%} %>
@@ -185,7 +185,7 @@
               </div>
               <% if (currentPost[index].postBody.length > 440){ %>
                 <p ><%-currentPost[index].postBody.slice(0,440)%> ... </p>
-                <a href="">Číst dále</a>
+                <a href="/news/<%=currentPost[index].id%>">Číst dále</a>
                 <%} else{ %>
                   <p ><%-currentPost[index].postBody%> </p>
                 <%} %>
@@ -227,10 +227,10 @@
           Zažij neopakovatelná dobrodružství v Bradavickém hradě
         </h3>
         <p>
-          Bradavice online jsou jedinečný RP WOW server, který umožňuje
-          nekonečné množství zážitků, které si vytvářejí hráči sami svými RP
-          interakcemi s ostatními hráči či profesory, nebo které pro ně
-          připravuje GM tým ve formě ročenkových akcí.
+          Bradavice online jsou jedinečný WOW RP server, který hráčům přináší velké množství zábavy 
+          a nevšedních zážitků, a to jednak v podobě RP interakcí mezi hráči navzájem, jednak ve formě 
+          akcí připravovaných GM týmem. Oblíbeným dobrodružstvím jsou celoroční akce, které se odvíjí 
+          na etapy v průběhu celého školního roku.
         </p>
       </div>
       <div class="col-md-3">
@@ -239,7 +239,7 @@
     </div>
 
     <div class="row align-right">
-      <div class="col-md-3">
+      <div class="col-md-3 middle-image-big-screen">
         <img
           class="feature-img feature-img-left"
           src="/images/potion_brewing.jpg"
@@ -249,13 +249,19 @@
       <div class="col-md-9 feature-text">
         <h3 class="feature-heading">Nauč se vařit lektvary a ovládat kouzla</h3>
         <p>
-          V Bradavicích online najdete speciálně upravený systém lektvarů a
-          kouzel. Budete tak moci sbírat vzácné suroviny na pozemcích hradu a
-          učit se čím dál složitější lektvary, které vám umožní uskutečnit vaše
-          dobrodružství. Kouzla vám naopak pomohou se bránit před temnými tvori
-          a ulehčí vám spoustu aktivit.
+          V Bradavicích online na Vás čeká speciálně upravený systém lektvarů 
+          a kouzel. Budete mít možnost sbírat vzácné i běžné suroviny na pozemcích a
+           v interiérech Hradu, a postupně se učit čím dál složitějším lektvarům, 
+           které můžete dále využívat i mimo hodiny profesora Snapea. Kouzla Vám pomohou 
+           v obraně před temnými tvory, a ulehčí Vám nejeden zakázaný výlet z pokoje po večerce.
         </p>
       </div>
+      <div class="col-md-3 middle-image-small-screen">
+        <img
+          class="feature-img feature-img-left"
+          src="/images/potion_brewing.jpg"
+          alt="brewing potion"
+        />
     </div>
 
     <div class="row align-left">
@@ -264,11 +270,12 @@
           Prozkoumej bludiště chodeb Bradavického hradu a jeho pozemků
         </h3>
         <p>
-          Bradavický hrad skrývá mnoho spletitých chodeb, místnosti, ale i
-          skrytých koridorů, které vám mohou pomoci stihnout vyučovací hodinu
-          včas, ale také schovávají mnoho tajemství a předmětů. Bradavice online
-          mají pro vás připravený celý hrad se všemi patry a přilehlými pozemky,
-          Prasinky, ale i další lokality z kouzelnického světa.
+          Bradavický hrad ukrývá mnoho spletitých chodeb, tajných místností,
+           ale i zapomenutých koridorů, které Vám mohou pomoci stihnout vyučovací 
+           hodinu včas, schovávají ale také mnoho tajemství a nebezpečných předmětů. 
+           Bradavice online pro Vás mají připravený celý hrad se všemi patry a přilehlými 
+           pozemky, Zapovězený les, Prasinky, ale i další lokality z kouzelnického světa 
+           jako například Godrikův důl anebo Malý Visánek.
         </p>
       </div>
       <div class="col-md-3">

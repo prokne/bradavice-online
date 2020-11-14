@@ -1,0 +1,41 @@
+<%- include("partials/header") %>
+<div class="content">
+    <div class="container post-section">
+
+        <%  const IMGURL = "" %>
+        <% if (img === "" || img === null ){ %>
+        <%    imgURL = "/images/gate.jpg" %>
+        <%} else { %>
+          <%  imgURL = img %>
+          <%} %>
+
+        <img class="post-img" src="<%=imgURL%>" alt="post image">
+        <h2><%=heading%></h2>
+        <div>
+            <ul>
+                <li class="post-info-item"><i class="far fa-user"></i><%=user%></li>
+                <li class="post-info-item">
+                    <i class="far fa-clock"></i><%=date%>
+                </li>
+            </ul>
+        </div>
+        <div class="post">
+            <p><%-postBody%> </p>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%- include("partials/footer") %> 

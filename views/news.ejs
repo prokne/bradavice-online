@@ -23,8 +23,12 @@
           </li>
         </ul>
       </div>
-      <p ><%-post.postBody%> </p>
-      <a href="">Číst dále</a>
+      <% if(post.postBody.length > 440){ %>
+        <p ><%-post.postBody.slice(0,440)%> ... </p>
+        <a href="/news/<%=post.id%>">Číst dále</a>
+        <%} else{ %>
+          <p ><%-post.postBody%> </p>
+        <%}%>
     </div>
   </div>
 
