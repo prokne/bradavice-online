@@ -1,8 +1,9 @@
 <%- include("partials/header") %>
-<div class="content">
+
+
     <div class="container post-section">
 
-        <%  const IMGURL = "" %>
+        <%  let imgURL = "" %>
         <% if (img === "" || img === null ){ %>
         <%    imgURL = "/images/gate.jpg" %>
         <%} else { %>
@@ -22,7 +23,13 @@
         <div class="post">
             <p><%-postBody%> </p>
         </div>
-    </div>
+
+        <div class="post-galery">
+        <% images.forEach((image)=>{ %> 
+            <img class="post-galery-img" src="<%=image.url%>" alt="post image">
+        <%  }) %> 
+        </div>
+
 </div>
 
 

@@ -125,14 +125,20 @@ app.get("/news/:postId", (req, res) => {
       if (err) {
         console.log(err);
       } else {
-        console.log(result.heading);
-        res.render("post", {
-          img: result[0].img_url,
-          heading: result[0].heading,
-          user: result[0].username,
-          date: result[0].date,
-          postBody: result[0].postBody,
-        });
+        con.query(
+          "SELECT * FROM post_images WHERE postId = ?",
+          [result[0].id],
+          (err, images) => {
+            res.render("post", {
+              img: result[0].img_url,
+              heading: result[0].heading,
+              user: result[0].username,
+              date: result[0].date,
+              postBody: result[0].postBody,
+              images: images,
+            });
+          }
+        );
       }
     }
   );
@@ -151,26 +157,39 @@ app.get("/compose", (req, res) => {
 });
 
 app.post("/compose", (req, res) => {
+  console.log(req.files);
   const articleHeading = req.body.heading;
   const articleBody = req.body.postBody;
   let imageUrl = "";
+  let imageFileName = "";
+  let postId = 0;
+
+  //Array of immages to upload
+  const images = [];
+  const imagesKeys = Object.keys(req.files);
+  imagesKeys.forEach((key) => {
+    images.push(req.files[key]);
+    console.log(key);
+  });
+
+  //url of the preview image for mysql
+  const previewImgUrl = "/images/articles/" + images[0].name;
 
   //Upload image
   //Check if is there any image
   if (!req.files || Object.keys(req.files).length === 0) {
     console.log("No files were uploaded");
   } else {
-    const imageToUpload = req.files.image;
-    const imageFileName = imageToUpload.name;
-    // const imageFileName = _.kebabCase(articleHeading);
-    imageUrl = "/images/articles/" + imageFileName;
+    images.forEach((image) => {
+      // const imageFileName = _.kebabCase(articleHeading);
 
-    imageToUpload.mv("public/images/articles/" + imageToUpload.name, (err) => {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log("File uploaded!");
-      }
+      image.mv("public/images/articles/" + image.name, (err) => {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log("File uploaded!");
+        }
+      });
     });
   }
 
@@ -181,6 +200,7 @@ app.post("/compose", (req, res) => {
     (today.getMonth() + 1) +
     ". " +
     today.getFullYear();
+
   const curentUser = req.user.id;
   //Update MYSQL
   con.query(
@@ -189,7 +209,7 @@ app.post("/compose", (req, res) => {
       "', '" +
       articleBody +
       "', '" +
-      imageUrl +
+      previewImgUrl +
       "', '" +
       curentUser +
       "', '" +
@@ -198,11 +218,23 @@ app.post("/compose", (req, res) => {
     (err, result) => {
       if (err) {
         console.log(err);
+      } else {
+        //Update POST_IMAGES
+        for (let index = 1; index < images.length; index++) {
+          imageUrl = "/images/articles/" + images[index].name;
+          con.query(
+            `INSERT INTO post_images (postId, url) VALUES ("${result.insertId}", "${imageUrl}")`,
+            (err, result) => {
+              if (err) {
+                console.log(err);
+              }
+            }
+          );
+        }
+        res.redirect("/news");
       }
     }
   );
-
-  res.redirect("/news");
 });
 
 app.get("/login", (req, res) => {
