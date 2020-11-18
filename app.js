@@ -4,6 +4,7 @@ require("dotenv").config();
 const bodyParser = require("body-parser");
 const mysql = require("mysql");
 const fileUpload = require("express-fileupload");
+const nodemailer = require("nodemailer");
 const _ = require("lodash");
 const flash = require("req-flash");
 const session = require("express-session");
@@ -38,6 +39,17 @@ const con = mysql.createPool({
   password: process.env.DB_PASS,
   database: process.env.DB_DB,
   multipleStatements: true,
+});
+
+//email Config
+const transporter = nodemailer.createTransport({
+  host: "smtp.seznam.cz",
+  port: 465,
+  secure: true,
+  auth: {
+    user: "info@bradavice-online.cz",
+    pass: process.env.MAIL_PASS,
+  },
 });
 
 // con.connect((err) => {
@@ -342,6 +354,30 @@ app.post("/game-registration", (req, res) => {
           if (err) {
             console.log(err);
           } else {
+            //Send confirmation email
+            transporter.sendMail(
+              {
+                from: "info@bradavice-online.cz",
+                to: req.body.email,
+                subject: "Potvrzení registrace",
+                html: `<p>Vážený hráči, </p> <p>obdrželi jsme Tvoji registraci na Vánoční akci 2020 na serveru Bradavice - online.
+                Herní účet jsi si zaregistroval pod přihlašovacím jménem: <b>${req.body.login}</b>, tvá postava se jmenuje <b>${req.body.playerName}</b>, je jí <b>${req.body.age}</b> let. 
+                Přál by sis, aby patřila do koleje <b>${req.body.house1}</b> nebo <b>${req.body.house2}</b>.</p>
+                <p>Bližśí informace k akci a k tvé postavě očekávej v emailu, který Ti zašleme pár dní před plánovanou akcí. 
+                V mezičase si, prosíme, nastuduj rubriku „Jak se připojit“ <a href="http://bradavice-online.cz/how-to-connect">zde</a>. Je důležité stáhnout si a zprovoznit hru s dostatečným předstihem.</p></br>
+                <p>Budeme se těšit na viděnou ve vánočních Bradavicích.</p>
+                <p>S pozdravem</p>
+                <p>GM tým Bradavice online</p>`,
+              },
+              (err, info) => {
+                if (err) {
+                  console.log(err);
+                } else {
+                  console.log("Email sent: " + info.response);
+                }
+              }
+            );
+
             res.render("succes");
           }
         });
