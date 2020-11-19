@@ -94,6 +94,7 @@
           <li data-target="#NewsCarouselIndicators" data-slide-to="1"></li>
           <li data-target="#NewsCarouselIndicators" data-slide-to="2"></li>
         </ol>
+
         <div class="carousel-inner">
           <div class="carousel-item active news-carousel-item">
 
@@ -130,7 +131,7 @@
             </div>
           </div>
 
-          <div class="carousel-item news-carousel-item">
+          <!-- <div class="carousel-item news-carousel-item">
             <% index = 1 %> 
             <% if (currentPost[index].img_url === "" || currentPost[index].img_url === null ){ %>
             <%    imgURL = "images/gate.jpg" %>
@@ -170,29 +171,29 @@
               <%  imgURL = currentPost[index].img_url %>
               <%} %>
         
-          <div class="post row">
-            <div class="col-md-4">
-              <img class="post-img" src="<%=imgURL%> " alt="" />
-            </div>
-            <div class="col-md-8">
-              <h2 class="news-carousel-heading"><%=currentPost[index].heading%></h2>
-              <div class="post-info">
-                <ul>
-                  <li class="post-info-item"><i class="far fa-user"></i><%=currentPost[index].username%></li>
-                  <li class="post-info-item">
-                    <i class="far fa-clock"></i><%=currentPost[index].date%>
-                  </li>
-                </ul>
+            <div class="post row">
+              <div class="col-md-4">
+                <img class="post-img" src="<%=imgURL%> " alt="" />
               </div>
-              <% if (currentPost[index].postBody.length > 440){ %>
-                <p ><%-currentPost[index].postBody.slice(0,440)%> ... </p>
-                <a href="/news/<%=currentPost[index].id%>">Číst dále</a>
-                <%} else{ %>
-                  <p ><%-currentPost[index].postBody%> </p>
-                <%} %>
+              <div class="col-md-8">
+                <h2 class="news-carousel-heading"><%=currentPost[index].heading%></h2>
+                <div class="post-info">
+                  <ul>
+                    <li class="post-info-item"><i class="far fa-user"></i><%=currentPost[index].username%></li>
+                    <li class="post-info-item">
+                      <i class="far fa-clock"></i><%=currentPost[index].date%>
+                    </li>
+                  </ul>
+                </div>
+                <% if (currentPost[index].postBody.length > 440){ %>
+                  <p ><%-currentPost[index].postBody.slice(0,440)%> ... </p>
+                  <a href="/news/<%=currentPost[index].id%>">Číst dále</a>
+                  <%} else{ %>
+                    <p ><%-currentPost[index].postBody%> </p>
+                  <%} %>
+              </div>
             </div>
-          </div>
-          </div>
+          </div> -->
         </div>
       <a
           class="carousel-control-prev"
