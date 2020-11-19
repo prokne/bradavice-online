@@ -363,7 +363,7 @@ app.post("/game-registration", (req, res) => {
                 html: `<p>Vážený hráči, </p> <p>obdrželi jsme Tvoji registraci na Vánoční akci 2020 na serveru Bradavice - online.
                 Herní účet jsi si zaregistroval pod přihlašovacím jménem: <b>${req.body.login}</b>, tvá postava se jmenuje <b>${req.body.playerName}</b>, je jí <b>${req.body.age}</b> let. 
                 Přál by sis, aby patřila do koleje <b>${req.body.house1}</b> nebo <b>${req.body.house2}</b>.</p>
-                <p>Bližśí informace k akci a k tvé postavě očekávej v emailu, který Ti zašleme pár dní před plánovanou akcí. 
+                <p>Bližší informace k akci a k tvé postavě očekávej v emailu, který Ti zašleme pár dní před plánovanou akcí. 
                 V mezičase si, prosíme, nastuduj rubriku „Jak se připojit“ <a href="http://bradavice-online.cz/how-to-connect">zde</a>. Je důležité stáhnout si a zprovoznit hru s dostatečným předstihem.</p></br>
                 <p>Budeme se těšit na viděnou ve vánočních Bradavicích.</p>
                 <p>S pozdravem</p>
