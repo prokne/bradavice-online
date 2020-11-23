@@ -389,7 +389,6 @@ app.post("/game-registration", (req, res) => {
 app.get("/admin", (req, res) => {
   if (req.isAuthenticated()) {
     res.render("admin", { user: req.user.username });
-    console.log(req.user.username);
   } else {
     res.redirect("/login");
   }
