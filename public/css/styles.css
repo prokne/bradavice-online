@@ -313,7 +313,7 @@ nav a {
   width: 70%;
 }
 
-.connect-section a {
+.button-link {
   display: inline-block;
   color: #1a1a2e;
   background-color: #ffcc79;
@@ -325,7 +325,7 @@ nav a {
   transition: all 0.3s ease;
 }
 
-.connect-section a:hover {
+.button-link:hover {
   background-color: #fde9c9;
 }
 
@@ -374,6 +374,26 @@ nav a {
 
 .post-section .post {
   margin: 0 auto 80px;
+}
+
+/* ADMIN SECTION */
+.admin-section {
+  margin: 50px;
+}
+.admin-section a {
+  margin-right: 20px;
+}
+.admin-icon {
+  font-size: 5rem;
+  display: block;
+}
+
+/* REGISTERED PLAYERS SECTION */
+.registered-players-section {
+  margin: 50px auto;
+}
+.registered-players-section table {
+  color: #eeeeee;
 }
 
 /* RESPONSIVE DESIGN */

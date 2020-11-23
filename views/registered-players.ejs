@@ -1,0 +1,36 @@
+<%- include("partials/header") %> 
+<div class="container registered-players-section">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Jméno</th>
+            <th scope="col">email</th>
+            <th scope="col">Věk</th>
+            <th scope="col">Kolej 1</th>
+            <th scope="col">Kolej 2</th>
+            <th scope="col">Login</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% players.forEach(player => { %>
+        <tr>
+            <th scope="row"><%-player.id%></th>
+            <td><%-player.name%></td>
+            <td><%-player.email%></td>
+            <td><%-player.age%></td>
+            <td><%-player.house1%></td>
+            <td><%-player.house2%></td>
+            <td><%-player.login%></td>
+        </tr>
+        <%});%>
+
+
+        </tbody>
+      </table>
+</div>
+
+
+
+
+<%- include("partials/footer") %> 

@@ -267,7 +267,7 @@ app.post("/login", function (req, res, next) {
       if (err) {
         return next(err);
       }
-      return res.redirect("compose");
+      return res.redirect("admin");
     });
   })(req, res, next);
 });
@@ -383,6 +383,30 @@ app.post("/game-registration", (req, res) => {
         });
       }
     });
+  }
+});
+
+app.get("/admin", (req, res) => {
+  if (req.isAuthenticated()) {
+    res.render("admin", { user: req.user.username });
+    console.log(req.user.username);
+  } else {
+    res.redirect("/login");
+  }
+});
+
+app.get("/registered-players", (req, res) => {
+  if (req.isAuthenticated()) {
+    con.query("SELECT * FROM players", (err, result) => {
+      if (err) {
+        console.log(err);
+      }
+      if (result) {
+        res.render("registered-players", { players: result });
+      }
+    });
+  } else {
+    res.redirect("/login");
   }
 });
 app.listen(process.env.PORT, () => {
