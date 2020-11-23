@@ -396,6 +396,10 @@ nav a {
   color: #eeeeee;
 }
 
+.registered-players-section .table .thead-dark th {
+  background-color: #1a1a2e;
+}
+
 /* RESPONSIVE DESIGN */
 
 /* smaller PC */
