@@ -353,6 +353,12 @@ nav a {
   text-align: left;
   font-weight: bold;
 }
+.input-description {
+  font-size: 0.9rem;
+  text-align: left;
+  margin-top: -10px;
+  color: rgb(153, 153, 153);
+}
 
 /* POST PAGE */
 

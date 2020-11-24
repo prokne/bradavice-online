@@ -77,7 +77,7 @@
             <div class="row">
 
                 <div class="col-sm-6">
-                    <label for="">Login:</label>
+                    <label for="">Login:*</label>
                     <input
                         class="form-control login-input"
                         type="text"
@@ -86,6 +86,7 @@
                         placeholder="Login"
                         required
                     />
+                    <p class="input-description" >* Login musí být pouze jednoslovný a bez diakritiky.</p>
 
                     <label for="">Heslo:</label>
                     <input
@@ -109,7 +110,7 @@
 
                 </div>
                 <div class="col-sm-6">
-                    <label for="">Jméno a příjmení postavy:</label>
+                    <label for="">Jméno a příjmení postavy:*</label>
                     <input
                     class="form-control login-input"
                     type="text"
@@ -118,6 +119,10 @@
                     placeholder="Jméno a příjmení postavy"
                     required
                     />
+                    <p class="input-description" >* U jména postavy se snažte vyhnětě jménum celebrit či jménum z potterovského světa.
+                      Rovněž se snažte vyhnout českým jménům.
+                    </p>
+
                     <label for="">Věk postavy:</label>
                     <select class="form-control login-input" name="age" id="">
                         <option value="11">11</option>
@@ -141,7 +146,6 @@
                     </select>
                 </div>
             </div>
-
           <p class="error-message"><%=errorMessage%> </p>
           <button
             class="btn btn-lg btn-danger btn-login"
@@ -165,7 +169,10 @@
           <i class="fab fa-youtube"></i>
         </a>
       </div>
-      <p class="copyright">© Copyright 2020 Bradavice online</p>
+      <p>Tento weby využívá plugin Google Analytics, který zpracovává anonymní data o návštěvnosti webu. O zpracování soukromých dat viz <a href="https://policies.google.com/technologies/partner-sites">zde</a></p>
+      <p class="copyright">Veškeré obrázky a materiály týkající se románů J.K.Rowlingové © Albatros</p>
+      <p class="copyright">Veškeré materiály týkající se "Harry Potter" filmů © Warner Bros</p>
+      <p class="copyright">© Copyright 2020</p>
     </footer>
   </body>
 </html>
