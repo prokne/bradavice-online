@@ -14,9 +14,10 @@
           </tr>
         </thead>
         <tbody>
+        <% let count = 1 %>
         <% players.forEach(player => { %>
         <tr>
-            <th scope="row"><%-player.id%></th>
+            <th scope="row"><%-count%></th>
             <td><%-player.name%></td>
             <td><%-player.email%></td>
             <td><%-player.age%></td>
@@ -24,6 +25,7 @@
             <td><%-player.house2%></td>
             <td><%-player.login%></td>
         </tr>
+        <% count++; %>
         <%});%>
 
 
