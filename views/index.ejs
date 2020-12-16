@@ -9,13 +9,13 @@
       <p >Po registraci získáváš možnost zahrát si jedenáctiletého kouzelníka, který poprvé objevuje a ochutnává atmosféru Bradavického hradu, seznamuje se s jeho obyvateli a tajemstvími. Máš možnost navštěvovat hodiny, navazovat nová přátelství, ale především na Tebe čeká dobrodružství v podobě ročníkové akce a mnoha dalších akcí vedlejších.
       </p>
     </div>
-    <h4 style="color: #e94560;">Nyní probíhá registrace na Vánoční akci 2020</h4>
+    <h4 style="color: #e94560;">Nyní se nelze registrovat</h4>
 
-    <form action="/game-registration">
+    <!-- <form action="/game-registration">
       <button type="submit" class="btn-registrate-now btn btn-danger btn-large">
         Zaregistruj se nyní!
       </button>
-    </form>
+    </form> -->
 
 
     <div class="welcome-carousel">
@@ -100,7 +100,7 @@
             class="active"
           ></li>
           <li data-target="#NewsCarouselIndicators" data-slide-to="1"></li>
-          <!-- <li data-target="#NewsCarouselIndicators" data-slide-to="2"></li> -->
+          <li data-target="#NewsCarouselIndicators" data-slide-to="2"></li>
         </ol>
 
         <div class="carousel-inner">
@@ -170,9 +170,9 @@
             </div>
           </div>
 
-          <!-- </div>
+          </div>
           <div class="carousel-item news-carousel-item">
-            <%/* index = 2 %> 
+            <%index = 2 %> 
             <% if (currentPost[index].img_url === "" || currentPost[index].img_url === null ){ %>
             <%    imgURL = "images/gate.jpg" %>
             <%} else { %>
@@ -198,10 +198,10 @@
                   <a href="/news/<%=currentPost[index].id%>">Číst dále</a>
                   <%} else{ %>
                     <p ><%-currentPost[index].postBody%> </p>
-                  <%} */%>
+                  <%} %>
               </div>
             </div>
-          </div> -->
+          </div>
         </div>
       <a
           class="carousel-control-prev"
