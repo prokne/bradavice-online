@@ -27,7 +27,7 @@ h5 {
 }
 h1 {
   color: #eeeeee;
-  margin: 20px;
+  padding: 20px;
   font-size: 2.7rem;
 }
 h2 {
@@ -92,15 +92,26 @@ a:link {
 /*Welcome Section*/
 
 .welcome-section {
-  margin: 120px auto 80px;
   line-height: 1.7;
+
+}
+
+.welcome-image{
+  background-image: linear-gradient(to bottom,rgba(255,255,255,0.3) 20%, rgba(61,61,61,0.8)), url("/images/img5.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 90vh;
 }
 
 .welcome-text {
+  position: absolute;
+  top: 30%;
+  left: 40%;
+  width: 50%;
   margin-top: 70px;
   text-align: center;
   padding: 0 65px;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 }
 
 .welcome-carousel {
@@ -432,6 +443,7 @@ nav a {
   .welcome-section {
     padding-right: 20px;
     padding-left: 20px;
+
   }
 
   .welcome-text {
