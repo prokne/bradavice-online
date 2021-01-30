@@ -176,6 +176,8 @@ a:link {
 }
 .news-carousel-heading {
   font-size: 1.5rem;
+  margin: 20px 0 0;
+  text-align: center;
 }
 
 .news-carousel .carousel-control-prev {
@@ -329,6 +331,7 @@ nav a {
   margin-bottom: 20px;
 }
 .login-header {
+  color: #eeeeee;
   font-size: 3.5rem;
   font-family: "Satisfy", cursive;
   margin: 100px 0;
