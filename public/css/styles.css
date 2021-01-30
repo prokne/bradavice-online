@@ -169,10 +169,15 @@ a:link {
 .news-carousel-section {
   padding: 100px 0;
   background-color: #16213e;
+
+
 }
 
-.news-carousel-item {
-  padding: 20px 100px;
+.news-item {
+  padding: 20px;
+  -webkit-box-shadow: 10px 10px 30px 0px rgba(0,0,0,1);
+-moz-box-shadow: 10px 10px 30px 0px rgba(0,0,0,1);
+box-shadow: 10px 10px 30px 0px rgba(0,0,0,1);
 }
 .news-carousel-heading {
   font-size: 1.5rem;
