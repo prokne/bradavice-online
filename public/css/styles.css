@@ -93,19 +93,21 @@ a:link {
 .welcome-section {
   line-height: 1.7;
   padding: 0;
-
+  position: relative;
 }
 
 .welcome-image{
-  background-image: linear-gradient(to bottom,rgba(255,255,255,0.3) 20%,rgba(22,33,62, 0.6) 70%, rgba(22,33,62, 1)95%), url("/images/img5.jpg");
+  background-image: linear-gradient(to bottom,rgba(0, 0, 0, 0.3) 20%,rgba(22,33,62, 0.6) 70%, rgba(22,33,62, 1)95%), url("/images/img5.jpg");
   background-size: cover;
   background-position: 50% 60%;
   height: 100vh;
+  position: relative;
+  z-index: -1;
 }
 
 .welcome-text {
   position: absolute;
-  top: 30%;
+  top: 16%;
   left: 40%;
   width: 50%;
   margin-top: 70px;
@@ -562,6 +564,7 @@ nav a {
 
 
   .welcome-text {
+    top: 15%;
     left: 0;
     width: 100%;
     font-size: 1rem;
