@@ -247,8 +247,8 @@
                 </li>
               </ul>
             </div>
-            <% if (currentPost[index].postBody.length > 200){ %>
-              <p ><%-currentPost[index].postBody.slice(0,200)%> ... </p>
+            <% if (currentPost[index].postBody.length > 440){ %>
+              <p ><%-currentPost[index].postBody.slice(0,440)%> ... </p>
               <a href="/news/<%=currentPost[index].id%>">Číst dále</a>
               <%} else{ %>
                 <p ><%-currentPost[index].postBody%> </p>
@@ -267,7 +267,7 @@
             <%  imgURL = currentPost[index].img_url %>
             <%} %>
       
-          <div class="post">
+          <div>
             <a href="/news/<%=currentPost[index].id%>"><img class="post-img" src="<%=imgURL%> " alt="" /></a>
             <h2 class="news-carousel-heading"><%=currentPost[index].heading%></h2>
             <div class="post-info">
@@ -298,7 +298,7 @@
             <%  imgURL = currentPost[index].img_url %>
             <%} %>
       
-          <div class="post">
+          <div>
             <a href="/news/<%=currentPost[index].id%>"><img class="post-img" src="<%=imgURL%> " alt="" /></a>
             <h2 class="news-carousel-heading"><%=currentPost[index].heading%></h2>
             <div class="post-info">
