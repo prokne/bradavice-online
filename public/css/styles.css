@@ -93,6 +93,7 @@ a:link {
 
 .welcome-section {
   line-height: 1.7;
+  padding: 0;
 
 }
 
@@ -440,11 +441,6 @@ nav a {
     margin-right: 3%;
   }
 
-  .welcome-section {
-    padding-right: 20px;
-    padding-left: 20px;
-
-  }
 
   .welcome-text {
     font-size: 1rem;
@@ -511,9 +507,6 @@ nav a {
     margin-right: 3%;
   }
 
-  .welcome-section {
-    margin-top: 40px;
-  }
 
   .welcome-text {
     font-size: 1rem;
