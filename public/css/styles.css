@@ -169,27 +169,24 @@ a:link {
 .news-carousel-section {
   padding: 100px 0;
   background-color: #16213e;
+}
 
+.news-container{
+  padding: 50px 10%;
 
 }
 
 .news-item {
   padding: 20px;
-  -webkit-box-shadow: 10px 10px 30px 0px rgba(0,0,0,1);
--moz-box-shadow: 10px 10px 30px 0px rgba(0,0,0,1);
-box-shadow: 10px 10px 30px 0px rgba(0,0,0,1);
+  margin: 0 20px;
+  -webkit-box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.5);
+  -moz-box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.5);
+  box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.5);
 }
 .news-carousel-heading {
   font-size: 1.5rem;
   margin: 20px 0 0;
   text-align: center;
-}
-
-.news-carousel .carousel-control-prev {
-  padding-right: 30px;
-}
-.news-carousel .carousel-control-next {
-  padding-left: 30px;
 }
 
 /* Feature section */
@@ -485,9 +482,12 @@ nav a {
     margin-right: 3%;
   }
 
-
   .welcome-text {
     font-size: 1rem;
+  }
+
+  .news-container{
+    padding: 0 8%;
   }
 
   .features-section {
@@ -580,15 +580,15 @@ nav a {
     padding: 0;
   }
 
-  .news-carousel {
-    margin-top: -60px;
-  }
   .news-carousel-section {
     padding: 40px 0;
   }
 
-  .news-carousel-item {
-    padding: 20px;
+  .news-container{
+    padding: 0 5%;
+  }
+  .news-item{
+    margin-bottom: 20px;
   }
   .news-carousel-heading {
     font-size: 1.5rem;
