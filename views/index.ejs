@@ -259,7 +259,6 @@
 
       <!-- Second Item -->
       <div class="col-md-4">
-
         <div class="news-item">
           <%index = 1 %> 
           <% if (currentPost[index].img_url === "" || currentPost[index].img_url === null ){ %>
@@ -268,27 +267,23 @@
             <%  imgURL = currentPost[index].img_url %>
             <%} %>
       
-          <div class="post row">
-            <div class="col-md-4">
-              <img class="post-img" src="<%=imgURL%> " alt="" />
+          <div class="post">
+            <a href="/news/<%=currentPost[index].id%>"><img class="post-img" src="<%=imgURL%> " alt="" /></a>
+            <h2 class="news-carousel-heading"><%=currentPost[index].heading%></h2>
+            <div class="post-info">
+              <ul>
+                <li class="post-info-item"><i class="far fa-user"></i><%=currentPost[index].username%></li>
+                <li class="post-info-item">
+                  <i class="far fa-clock"></i><%=currentPost[index].date%>
+                </li>
+              </ul>
             </div>
-            <div class="col-md-8">
-              <h2 class="news-carousel-heading"><%=currentPost[index].heading%></h2>
-              <div class="post-info">
-                <ul>
-                  <li class="post-info-item"><i class="far fa-user"></i><%=currentPost[index].username%></li>
-                  <li class="post-info-item">
-                    <i class="far fa-clock"></i><%=currentPost[index].date%>
-                  </li>
-                </ul>
-              </div>
-              <% if (currentPost[index].postBody.length > 440){ %>
-                <p ><%-currentPost[index].postBody.slice(0,440)%> ... </p>
-                <a href="/news/<%=currentPost[index].id%>">Číst dále</a>
-                <%} else{ %>
-                  <p ><%-currentPost[index].postBody%> </p>
-                <%} %>
-            </div>
+            <% if (currentPost[index].postBody.length > 440){ %>
+              <p ><%-currentPost[index].postBody.slice(0,440)%> ... </p>
+              <a href="/news/<%=currentPost[index].id%>">Číst dále</a>
+              <%} else{ %>
+                <p ><%-currentPost[index].postBody%> </p>
+              <%} %>
           </div>
         </div>
       </div>
@@ -303,27 +298,23 @@
             <%  imgURL = currentPost[index].img_url %>
             <%} %>
       
-          <div class="post row">
-            <div class="col-md-4">
-              <img class="post-img" src="<%=imgURL%> " alt="" />
+          <div class="post">
+            <a href="/news/<%=currentPost[index].id%>"><img class="post-img" src="<%=imgURL%> " alt="" /></a>
+            <h2 class="news-carousel-heading"><%=currentPost[index].heading%></h2>
+            <div class="post-info">
+              <ul>
+                <li class="post-info-item"><i class="far fa-user"></i><%=currentPost[index].username%></li>
+                <li class="post-info-item">
+                  <i class="far fa-clock"></i><%=currentPost[index].date%>
+                </li>
+              </ul>
             </div>
-            <div class="col-md-8">
-              <h2 class="news-carousel-heading"><%=currentPost[index].heading%></h2>
-              <div class="post-info">
-                <ul>
-                  <li class="post-info-item"><i class="far fa-user"></i><%=currentPost[index].username%></li>
-                  <li class="post-info-item">
-                    <i class="far fa-clock"></i><%=currentPost[index].date%>
-                  </li>
-                </ul>
-              </div>
-              <% if (currentPost[index].postBody.length > 440){ %>
-                <p ><%-currentPost[index].postBody.slice(0,440)%> ... </p>
-                <a href="/news/<%=currentPost[index].id%>">Číst dále</a>
-                <%} else{ %>
-                  <p ><%-currentPost[index].postBody%> </p>
-                <%} %>
-            </div>
+            <% if (currentPost[index].postBody.length > 440){ %>
+              <p ><%-currentPost[index].postBody.slice(0,440)%> ... </p>
+              <a href="/news/<%=currentPost[index].id%>">Číst dále</a>
+              <%} else{ %>
+                <p ><%-currentPost[index].postBody%> </p>
+              <%} %>
           </div>
         </div>
       </div>
