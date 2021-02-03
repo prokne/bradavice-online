@@ -55,9 +55,9 @@ a:link {
 .navbar {
   background-color: #1a1a2e;
   padding: 25px;
-  -webkit-box-shadow: 0px 6px 36px -1px rgba(11,11,20,0.9);
-  -moz-box-shadow: 0px 6px 36px -1px rgba(11,11,20,0.9);
-  box-shadow: 0px 6px 36px -1px rgba(11,11,20,0.9);
+  -webkit-box-shadow: 0px 6px 36px -1px rgba(11, 11, 20, 0.9);
+  -moz-box-shadow: 0px 6px 36px -1px rgba(11, 11, 20, 0.9);
+  box-shadow: 0px 6px 36px -1px rgba(11, 11, 20, 0.9);
 }
 
 .navbar-brand {
@@ -96,8 +96,14 @@ a:link {
   position: relative;
 }
 
-.welcome-image{
-  background-image: linear-gradient(to bottom,rgba(0, 0, 0, 0.3) 20%,rgba(22,33,62, 0.6) 70%, rgba(22,33,62, 1)95%), url("/images/img5.jpg");
+.welcome-image {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(163, 163, 163, 0.3) 20%,
+      rgba(22, 33, 62, 0.6) 70%,
+      rgba(22, 33, 62, 1) 95%
+    ),
+    url("/images/img5.jpg");
   background-size: cover;
   background-position: 50% 60%;
   height: 100vh;
@@ -115,31 +121,28 @@ a:link {
   padding: 0 65px;
   font-size: 1.2rem;
 }
-.welcome-header{
+.welcome-header {
   position: relative;
   opacity: 0;
   animation: appear 0.6s ease-in 0s forwards;
 }
 /* paragraph 1*/
-.welcome-text :nth-child(2){
+.welcome-text :nth-child(2) {
   position: relative;
   opacity: 0;
   animation: appear 0.6s ease-in 0.3s forwards;
-
 }
 /* paragraph 2*/
-.welcome-text :nth-child(3){
+.welcome-text :nth-child(3) {
   position: relative;
   opacity: 0;
   animation: appear 0.6s ease-in 0.6s forwards;
-
 }
 /* Nyní se nelze registrovath 3*/
-.welcome-text :nth-child(4){
+.welcome-text :nth-child(4) {
   position: relative;
   opacity: 0;
   animation: appear 0.6s ease-in 0.9s forwards;
-
 }
 
 @keyframes appear {
@@ -173,17 +176,16 @@ a:link {
   background-color: #16213e;
 }
 
-.news-container{
+.news-container {
   padding: 50px 10%;
-
 }
 
 .news-item {
   padding: 20px;
   margin: 0 20px;
-  -webkit-box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.5);
-  -moz-box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.5);
-  box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.5);
 }
 .news-carousel-heading {
   font-size: 1.5rem;
@@ -488,7 +490,7 @@ nav a {
     font-size: 1rem;
   }
 
-  .news-container{
+  .news-container {
     padding: 0 8%;
   }
 
@@ -508,11 +510,11 @@ nav a {
     width: 25%;
   }
 
-  .welcome-text{
+  .welcome-text {
     font-size: 1rem;
   }
 
-  .welcome-header{
+  .welcome-header {
     font-size: 2rem;
     margin-bottom: 20px;
   }
@@ -521,22 +523,17 @@ nav a {
     font-size: 1.2rem;
     color: #0f3460;
   }
-  .navbar-nav{
+  .navbar-nav {
     margin-left: 8%;
   }
 
-  .navbar-brand{
+  .navbar-brand {
     padding-left: 3%;
   }
-
 }
 
 @media only screen and (max-width: 1090px) {
-
 }
-
-
-
 
 /* Mobile phone */
 @media only screen and (max-width: 450px) {
@@ -562,7 +559,6 @@ nav a {
     margin-right: 3%;
   }
 
-
   .welcome-text {
     top: 15%;
     left: 0;
@@ -571,7 +567,7 @@ nav a {
     padding: 0 20px;
   }
 
-  .welcome-text :nth-child(3){
+  .welcome-text :nth-child(3) {
     display: none;
   }
   .btn-registrate-now {
@@ -587,10 +583,10 @@ nav a {
     padding: 40px 0;
   }
 
-  .news-container{
+  .news-container {
     padding: 0 5%;
   }
-  .news-item{
+  .news-item {
     margin-bottom: 20px;
   }
   .news-carousel-heading {
