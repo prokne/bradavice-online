@@ -101,9 +101,9 @@ a:link {
       to bottom,
       rgba(163, 163, 163, 0.3) 20%,
       rgba(22, 33, 62, 0.6) 70%,
-      rgba(22, 33, 62, 1) 95%
+      hsl(224, 48%, 16%) 95%
     ),
-    url("/images/img5.jpg");
+    url("/images/img_landing_page.jpg");
   background-size: cover;
   background-position: 50% 60%;
   height: 100vh;
@@ -114,7 +114,7 @@ a:link {
 .welcome-text {
   position: absolute;
   top: 16%;
-  left: 5%;
+  left: 8%;
   width: 50%;
   margin-top: 70px;
   text-align: center;
@@ -124,8 +124,18 @@ a:link {
 
 .discord-widget {
   position: absolute;
-  top: 16%;
-  right: 10%;
+  top: 10%;
+  right: 5%;
+  width: 16%;
+}
+.discord-widget iframe {
+  padding: 5px;
+  background-color: #16213e;
+  -webkit-box-shadow: 10px 10px 30px 0px rgb(0, 0, 0);
+  -moz-box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 15px 10px #16213e;
+  opacity: 0;
+  animation: appear 0.6s ease-in 1.5s forwards;
 }
 .welcome-header {
   position: relative;
@@ -187,7 +197,7 @@ a:link {
 }
 
 .news-item {
-  padding: 10px;
+  padding: 18px;
   margin: 0 5px;
   -webkit-box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.5);
