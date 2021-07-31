@@ -10,10 +10,17 @@ const flash = require("req-flash");
 const session = require("express-session");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
+
+//Crypto
 const sha1 = require("sha1");
-//const crypto = require("crypto");
+const crypto = require("crypto");
+var hexToBinary = require("hex-to-binary");
 const bcrypt = require("bcrypt");
-const { result } = require("lodash");
+var bigInt = require("big-integer");
+const bigintBuffer = require(`bigint-buffer`);
+const { computeVerifier, params } = require(`trinitycore-srp6`);
+
+const { result, toUpper } = require("lodash");
 const saltRounds = 10;
 
 const app = express();
@@ -38,6 +45,7 @@ const con = mysql.createPool({
   user: process.env.DB_USER,
   password: process.env.DB_PASS,
   database: process.env.DB_DB,
+  port: process.env.DB_PORT,
   multipleStatements: true,
 });
 
@@ -311,17 +319,19 @@ app.post("/register", (req, res) => {
   );
 });
 
-// app.get("/game-registration", (req, res) => {
-//   res.render("game-registration", { errorMessage: "" });
-// });
+app.get("/game-registration", (req, res) => {
+  res.render("game-registration", { errorMessage: "" });
+});
 
 app.post("/game-registration", (req, res) => {
   //HASh Password
-  const login = req.body.login.toUpperCase();
+  const login = req.body.login;
 
-  const shaPassword = sha1(
-    login + ":" + req.body.password.toUpperCase()
-  ).toUpperCase();
+  // const shaPassword = sha1(
+  //   login + ":" + req.body.password.toUpperCase()
+  // ).toUpperCase();
+
+  const [salt, verifier] = encryptPass(login, req.body.password);
 
   if (req.body.house1 === req.body.house2) {
     res.render("game-registration", {
@@ -329,7 +339,7 @@ app.post("/game-registration", (req, res) => {
     });
   } else {
     const query = "SELECT * FROM account WHERE username = ?";
-    con.query(query, [login], (err, result) => {
+    con.query(query, login, (err, result) => {
       if (err) {
         console.log(err);
       }
@@ -339,18 +349,33 @@ app.post("/game-registration", (req, res) => {
         });
       } else {
         //create WOW account
-        const query = `INSERT INTO players (name,email,age, house1, house2, login) VALUES 
-        ("${req.body.playerName}", 
-        "${req.body.email}", 
-        "${req.body.age}", 
-        "${req.body.house1}", 
-        "${req.body.house2}", 
-        "${req.body.login}");
-        INSERT INTO account (username, sha_pass_hash, email) VALUES (
-        "${login}", 
-        "${shaPassword}", 
-        "${req.body.email}")`;
-        con.query(query, (err, result) => {
+        // const query = `INSERT INTO players (name,email, house1, house2, login) VALUES
+        // ("${req.body.playerName}",
+        // "${req.body.email}",
+        // "${req.body.house1}",
+        // "${req.body.house2}",
+        // "${req.body.login}");
+        const query = `INSERT INTO account SET ?; INSERT INTO players SET ?`,
+          values = [
+            {
+              username: login,
+              salt: salt,
+              verifier: verifier,
+              email: req.body.email,
+            },
+            {
+              name: req.body.playerName,
+              email: req.body.email,
+              house1: req.body.house1,
+              house2: req.body.house2,
+              login: req.body.login,
+            },
+          ];
+        // "${login}",
+        // "${salt}",
+        // "${verifier}",
+        // "${req.body.email}")`;
+        con.query(query, values, (err, result) => {
           if (err) {
             console.log(err);
           } else {
@@ -360,12 +385,13 @@ app.post("/game-registration", (req, res) => {
                 from: "info@bradavice-online.cz",
                 to: req.body.email,
                 subject: "Potvrzení registrace",
-                html: `<p>Vážený hráči, </p> <p>obdrželi jsme Tvoji registraci na Vánoční akci 2020 na serveru Bradavice - online.
-                Herní účet jsi si zaregistroval pod přihlašovacím jménem: <b>${req.body.login}</b>, tvá postava se jmenuje <b>${req.body.playerName}</b>, je jí <b>${req.body.age}</b> let. 
+                html: `<p>Vážený hráči, </p> <p>obdrželi jsme Tvoji registraci do prvního ročníku na serveru Bradavice - online.
+                Herní účet jsi si zaregistroval pod přihlašovacím jménem: <b>${req.body.login}</b> a tvá postava se jmenuje <b>${req.body.playerName}</b>. 
                 Přál by sis, aby patřila do koleje <b>${req.body.house1}</b> nebo <b>${req.body.house2}</b>.</p>
-                <p>Bližší informace k akci a k tvé postavě očekávej v emailu, který Ti zašleme pár dní před plánovanou akcí. 
-                V mezičase si, prosíme, nastuduj rubriku „Jak se připojit“ <a href="http://bradavice-online.cz/how-to-connect">zde</a>. Je důležité stáhnout si a zprovoznit hru s dostatečným předstihem.</p></br>
-                <p>Budeme se těšit na viděnou ve vánočních Bradavicích.</p>
+                <p>Bližší informace k otevření serveru očekávej v emailu, který Ti zašleme pár dní před jeho otevřením. 
+                V mezičase si, prosíme, nastuduj rubriku „Jak se připojit“ <a href="http://bradavice-online.cz/how-to-connect">zde</a>. Je důležité stáhnout si a zprovoznit hru s dostatečným předstihem.
+                Připojit se můžeš také na náš Discord: <a href="https://discord.gg/wqkH3mdPu5">zde</a>, kde můžeš o hře diskutovat a kde rádi zodpovíme tvé dotazy.</p></br>
+                <p>Budeme se těšit na viděnou ve vánočních Bradavicích. Hra vypukne již 18.9.2021</p></br>
                 <p>S pozdravem</p>
                 <p>GM tým Bradavice online</p>`,
               },
@@ -411,3 +437,52 @@ app.get("/registered-players", (req, res) => {
 app.listen(process.env.PORT, () => {
   console.log("Server has started on port 3000");
 });
+
+// function encryptPass(login, password) {
+//   const g = BigInt(0x7);
+//   const N =
+//     BigInt(0x894b645e89e1535bbdad5b8b290650530801b18ebfbf5e8fab3c82872a3e9bb7);
+
+//   const salt = crypto.randomBytes(32);
+
+//   //const salt = Buffer.alloc(32).fill(randSalt.toString("binary"));
+//   console.log(salt);
+
+//   let h1 = crypto
+//     .createHash("sha1")
+//     .update(login + ":" + password)
+//     .digest();
+//   console.log("h1: " + h1);
+
+//   let h2 = crypto.createHash("sha1").update(salt).update(h1).digest();
+//   //h2 = BigInt(parseInt(hexToBinary(h2))); //convert binary h2 to number
+//   h2 = bigintBuffer.toBigIntLE(h2);
+//   console.log("h2: " + h2);
+
+//   //const verifier = powerMod(g, h2Num, N);
+//   let verifier = bigInt(g).modPow(h2, N);
+//   //verifier = BigInt(verifier).toString(2);
+//   console.log("verifier: " + BigInt(verifier).toString(2));
+
+//   const lEVerifier = verifier.value
+//     .toString(16)
+//     .match(/.{2}/g)
+//     .reverse()
+//     .join(``);
+
+//   console.log(Buffer.from(lEVerifier, `hex`));
+
+//   return [salt, Buffer.from(lEVerifier, `hex`)];
+// }
+
+function encryptPass(login, password) {
+  const salt = crypto.randomBytes(32);
+
+  const verifier = computeVerifier(
+    params.trinitycore,
+    salt,
+    login.toUpperCase(),
+    password.toUpperCase()
+  );
+  return [salt, verifier];
+}
