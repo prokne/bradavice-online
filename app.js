@@ -325,7 +325,7 @@ app.get("/game-registration", (req, res) => {
 
 app.post("/game-registration", (req, res) => {
   //HASh Password
-  const login = req.body.login;
+  const login = req.body.login.toUpperCase();
 
   // const shaPassword = sha1(
   //   login + ":" + req.body.password.toUpperCase()
