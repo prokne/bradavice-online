@@ -368,7 +368,7 @@ app.post("/game-registration", (req, res) => {
               email: req.body.email,
               house1: req.body.house1,
               house2: req.body.house2,
-              login: req.body.login,
+              login: login,
             },
           ];
         // "${login}",
