@@ -325,7 +325,7 @@ app.get("/game-registration", (req, res) => {
 
 app.post("/game-registration", (req, res) => {
   //HASh Password
-  const login = req.body.login.toUpperCase();
+  const login = req.body.login;
 
   // const shaPassword = sha1(
   //   login + ":" + req.body.password.toUpperCase()
@@ -358,7 +358,7 @@ app.post("/game-registration", (req, res) => {
         const query = `INSERT INTO account SET ?; INSERT INTO players SET ?`,
           values = [
             {
-              username: login,
+              username: login.toUpperCase(),
               salt: salt,
               verifier: verifier,
               email: req.body.email,
