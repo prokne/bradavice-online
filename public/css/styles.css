@@ -93,7 +93,7 @@ a:link {
 .welcome-section {
   line-height: 1.7;
   padding: 0;
-  position: relative;
+  /* position: relative; */
 }
 
 .welcome-image {
@@ -113,7 +113,7 @@ a:link {
 
 .welcome-text {
   position: absolute;
-  top: 16%;
+  top: 25%;
   left: 8%;
   width: 50%;
   margin-top: 70px;
@@ -124,7 +124,7 @@ a:link {
 
 .discord-widget {
   position: absolute;
-  top: 10%;
+  top: 30%;
   right: 5%;
   width: 16%;
 }
@@ -483,8 +483,11 @@ nav a {
 
 /* smaller PC */
 @media only screen and (max-width: 1500px) {
+  .welcome-text {
+    top: 20%;
+  }
   .welcome-header {
-    font-size: 2.4rem;
+    font-size: 2rem;
   }
   h2 {
     font-size: 2rem;
@@ -507,10 +510,12 @@ nav a {
   }
 
   .btn-registrate-now {
-    width: 300px;
+    width: 270px;
+    margin: 20px;
   }
 
   .discord-widget {
+    top: 30%;
     width: 20%;
   }
 
@@ -529,21 +534,26 @@ nav a {
 }
 
 @media only screen and (max-width: 1200px) {
+  h4 {
+    font-size: 1.2rem;
+  }
   .btn-registrate-now {
-    font-size: 1.3rem;
-    width: 25%;
+    font-size: 1.2rem;
+    width: 23%;
   }
 
-  .welcome-text {
+  .welcome-section .welcome-text {
+    top: 18%;
     font-size: 1rem;
+    width: 60%;
   }
 
   .welcome-header {
-    font-size: 2rem;
+    font-size: 1.7rem;
     margin-bottom: 20px;
   }
   .discord-widget {
-    top: 20%;
+    top: 30%;
     width: 24%;
   }
 
@@ -591,17 +601,15 @@ nav a {
     margin-right: 3%;
   }
 
-  .welcome-text {
-    top: 15%;
-    left: 0;
+  .welcome-section .welcome-text {
     width: 100%;
-    font-size: 1rem;
-    padding: 0 20px;
+    left: 0;
+    padding: 0 30px;
   }
   .discord-widget {
     position: static;
     width: 75%;
-    margin: 100px auto 0;
+    margin: 0 auto 20px;
   }
 
   .welcome-text :nth-child(3) {
@@ -610,7 +618,7 @@ nav a {
 
   .btn-registrate-now {
     font-size: 1rem;
-    width: 49%;
+    width: 60%;
   }
 
   .welcome-carousel {
