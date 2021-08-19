@@ -482,7 +482,18 @@ nav a {
 /* RESPONSIVE DESIGN */
 
 /* smaller PC */
-@media only screen and (max-width: 1500px) {
+@media only screen and (max-width: 1800px) {
+  .btn-registrate-now {
+    width: 270px;
+    margin: 20px;
+  }
+
+  .welcome-text {
+    font-size: 1.1rem;
+  }
+}
+
+@media only screen and (max-width: 1600px) {
   .welcome-text {
     top: 20%;
   }
@@ -506,7 +517,7 @@ nav a {
   }
 
   .welcome-text {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 
   .btn-registrate-now {
