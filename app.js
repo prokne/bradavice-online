@@ -280,9 +280,9 @@ app.post("/login", function (req, res, next) {
   })(req, res, next);
 });
 
-app.get("/register", (req, res) => {
-  res.render("register", { errorMessage: "" });
-});
+// app.get("/register", (req, res) => {
+//   res.render("register", { errorMessage: "" });
+// });
 
 app.post("/register", (req, res) => {
   con.query(
