@@ -168,6 +168,14 @@ app.get("/how-to-connect", (req, res) => {
   res.render("how-to-connect");
 });
 
+app.get("/how-to-play-rp", (req, res) => {
+  res.render("how-to-play-rp");
+});
+
+app.get("/years-events", (req, res) => {
+  res.render("years-events");
+});
+
 app.get("/compose", (req, res) => {
   if (req.isAuthenticated()) {
     res.render("newpost");

@@ -79,6 +79,13 @@ a:link {
   margin-right: 5%;
 }
 
+.dropdown-menu {
+  background-color: #1a1a2e;
+}
+.dropdown-item {
+  color: rgba(255, 255, 255, 0.5);
+}
+
 /* .navbar-expand-lg .navbar-nav .nav-link {
   padding-left: 40px;
 } */
@@ -402,6 +409,16 @@ nav a {
   background-color: #fde9c9;
 }
 
+/* HOW TO PLAY RP */
+
+.wrong {
+  color: #e94560;
+}
+
+.right {
+  color: rgb(91, 235, 34);
+}
+
 /* GAME ACCOUNT REGISTRATION */
 .img-registration {
   width: 450px;
@@ -612,10 +629,18 @@ nav a {
     margin-right: 3%;
   }
 
+  .welcome-image {
+    position: absolute;
+    top: 70px;
+    width: 100%;
+    z-index: -1;
+  }
+
   .welcome-section .welcome-text {
     width: 100%;
     left: 0;
     padding: 0 30px;
+    position: relative;
   }
   .discord-widget {
     position: static;
