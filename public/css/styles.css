@@ -496,6 +496,11 @@ nav a {
   background-color: #1a1a2e;
 }
 
+/* HARMONOGRAM SECTION */
+.calendar {
+  margin: 40px auto;
+}
+
 /* RESPONSIVE DESIGN */
 
 /* smaller PC */
