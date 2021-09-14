@@ -179,6 +179,9 @@ app.get("/years-events", (req, res) => {
 app.get("/calendar", (req, res) => {
   res.render("calendar");
 });
+app.get("/lore", (req, res) => {
+  res.render("lore");
+});
 
 app.get("/compose", (req, res) => {
   if (req.isAuthenticated()) {
