@@ -407,7 +407,7 @@ app.post("/game-registration", (req, res) => {
                 <p>Bližší informace k otevření serveru očekávej v emailu, který Ti zašleme pár dní před jeho otevřením. 
                 V mezičase si, prosíme, nastuduj rubriku „Jak se připojit“ <a href="http://bradavice-online.cz/how-to-connect">zde</a>. Je důležité stáhnout si a zprovoznit hru s dostatečným předstihem.
                 Připojit se můžeš také na náš Discord: <a href="https://discord.gg/wqkH3mdPu5">zde</a>, kde můžeš o hře diskutovat a kde rádi zodpovíme tvé dotazy.</p></br>
-                <p>Budeme se těšit na viděnou ve vánočních Bradavicích. Hra vypukne již 18.9.2021</p></br>
+                <p>Budeme se těšit na viděnou v Bradavicích. Hra vypukne již 18.9.2021</p></br>
                 <p>S pozdravem</p>
                 <p>GM tým Bradavice online</p>`,
               },
