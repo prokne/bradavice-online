@@ -404,10 +404,12 @@ app.post("/game-registration", (req, res) => {
                 html: `<p>Vážený hráči, </p> <p>obdrželi jsme Tvoji registraci do prvního ročníku na serveru Bradavice - online.
                 Herní účet jsi si zaregistroval pod přihlašovacím jménem: <b>${req.body.login}</b> a tvá postava se jmenuje <b>${req.body.playerName}</b>. 
                 Přál by sis, aby patřila do koleje <b>${req.body.house1}</b> nebo <b>${req.body.house2}</b>.</p>
-                <p>Bližší informace k otevření serveru očekávej v emailu, který Ti zašleme pár dní před jeho otevřením. 
-                V mezičase si, prosíme, nastuduj rubriku „Jak se připojit“ <a href="http://bradavice-online.cz/how-to-connect">zde</a>. Je důležité stáhnout si a zprovoznit hru s dostatečným předstihem.
+                <p>Bližší informace očekávej v emailu, který Ti zašleme pár dní před začátkem nového školního roku. 
+                V mezičase si, prosíme, nastuduj rubriku „Jak se připojit“ <a href="http://bradavice-online.cz/how-to-connect">zde</a>.
                 Připojit se můžeš také na náš Discord: <a href="https://discord.gg/wqkH3mdPu5">zde</a>, kde můžeš o hře diskutovat a kde rádi zodpovíme tvé dotazy.</p></br>
-                <p>Budeme se těšit na viděnou v Bradavicích. Hra vypukne již 18.9.2021</p></br>
+                Rovněž si můžeš přečíst naše články o tom <a href="https://bradavice-online.cz/how-to-play-rp">jak hrát RP</a> nebo si něco přečíst 
+                <a href="https://bradavice-online.cz/lore">o našem lore</a>.
+                <p>Budeme se těšit na viděnou v Bradavicích.</p></br>
                 <p>S pozdravem</p>
                 <p>GM tým Bradavice online</p>`,
               },
