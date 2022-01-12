@@ -452,6 +452,54 @@ app.get("/registered-players", (req, res) => {
     res.redirect("/login");
   }
 });
+
+app.get(
+  "/registered-players/:playerLogin&:playerNumber&:playerEmail",
+  (req, res) => {
+    const playerLogin = req.params.playerLogin;
+    const playerNumber = req.params.playerNumber;
+    const playerEmail = req.params.playerEmail;
+    console.log(req.params);
+
+    const query =
+        "DELETE FROM players WHERE login = ?; DELETE FROM account WHERE username = ?",
+      values = [playerLogin, playerLogin];
+
+    if (req.isAuthenticated()) {
+      con.query(query, values, (err, result) => {
+        if (err) {
+          console.log(err);
+        }
+        if (result) {
+          //Send informational email about removal
+          transporter.sendMail(
+            {
+              from: "info@bradavice-online.cz",
+              to: playerEmail,
+              subject: "Zamítnutí registrace",
+              html: `<p>Vážený hráči, </p> <p>tebou zvolené jméno postavy je v rozporu s pravidly pro volbu jména. Z toho důvodu 
+            jsme ti bohužel museli registraci smazat. Pokud si přeješ vytvořit novou registraci, přečti si, prosím, ještě 
+            jednou <a href="https://bradavice-online.cz/game-registration">pravidla</a> pro volbu jména postavy a pošli nám vyplněný formulář znovu. Budeme se na tebe těšit! </p></br>
+            <p>S pozdravem</p>
+            <p>GM tým Bradavice online</p>`,
+            },
+            (err, info) => {
+              if (err) {
+                console.log(err);
+              } else {
+                console.log("Email sent: " + info.response);
+              }
+            }
+          );
+          res.redirect(`/registered-players/#player${playerNumber - 1}`);
+        }
+      });
+    } else {
+      res.redirect(`/login`);
+    }
+  }
+);
+
 app.listen(process.env.PORT, () => {
   console.log("Server has started on port 3000");
 });
