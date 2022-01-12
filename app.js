@@ -108,7 +108,7 @@ passport.deserializeUser(function (id, done) {
 
 app.get("/", (req, res) => {
   con.query(
-    "SELECT posts.*, users.username FROM posts INNER JOIN users ON posts.userID=users.id",
+    "SELECT posts.*, users.username FROM posts INNER JOIN users ON posts.userID=users.id ORDER BY id",
     (err, result) => {
       if (!err) {
         //Reverse the array in order to see the newest articles on top
