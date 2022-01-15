@@ -82,7 +82,7 @@
                         placeholder="Login"
                         required
                     />
-                    <p class="input-description" >* Login musí být pouze jednoslovný a bez diakritiky.</p>
+                    <p class="input-description" >* Login nesmí být emailová adresa, musí být pouze jednoslovný a bez diakritiky.</p>
 
                     <label for="">Heslo:</label>
                     <input
@@ -93,6 +93,7 @@
                         placeholder="Heslo"
                         required
                     />
+                    <p class="input-description" >* Maximální délka hesla je 16 znaků.</p>
 
                     <label for="">Emailová adresa:</label>
                     <input
@@ -142,7 +143,7 @@
                     </select>
                 </div>
             </div>
-          <p class="error-message"><%=errorMessage%> </p>
+          <p class="error-message" id="error-message"><%=errorMessage%> </p>
           <button
             class="btn btn-lg btn-danger btn-login"
             type="submit"

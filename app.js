@@ -343,17 +343,34 @@ app.post("/game-registration", (req, res) => {
   //HASh Password
   const login = req.body.login;
 
-  // const shaPassword = sha1(
-  //   login + ":" + req.body.password.toUpperCase()
-  // ).toUpperCase();
+  const specialChars = /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?ěščřžýáíéňš]/;
 
   const [salt, verifier] = encryptPass(login, req.body.password);
 
-  if (req.body.house1 === req.body.house2) {
+  if (specialChars.test(login)) {
+    console.log(specialChars.test(login));
+    res.render("game-registration", {
+      errorMessage:
+        "Zadaný login nesmí obsahovat mezery, háčky, čárky, ani žádné speciální znaky jako např. '?/#-' apod.",
+    });
+  } else if (req.body.house1 === req.body.house2) {
     res.render("game-registration", {
       errorMessage: "Musíš si vybrat rozdílné koleje",
     });
-  } else {
+  } else if (req.body.password.length > 16) {
+    res.render("game-registration", {
+      errorMessage: "Maximální délka hesla je 16 znaků",
+    });
+  }
+
+  // if (req.body.house1 === req.body.house2) {
+  //   res.render("game-registration", {
+  //     errorMessage: "Musíš si vybrat rozdílné koleje",
+  //   });
+
+  // }
+  else {
+    //Check wheather acc already exists
     const query = "SELECT * FROM account WHERE username = ?";
     con.query(query, login, (err, result) => {
       if (err) {
@@ -365,12 +382,6 @@ app.post("/game-registration", (req, res) => {
         });
       } else {
         //create WOW account
-        // const query = `INSERT INTO players (name,email, house1, house2, login) VALUES
-        // ("${req.body.playerName}",
-        // "${req.body.email}",
-        // "${req.body.house1}",
-        // "${req.body.house2}",
-        // "${req.body.login}");
         const query = `INSERT INTO account SET ?; INSERT INTO players SET ?`,
           values = [
             {
