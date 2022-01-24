@@ -50,35 +50,24 @@ const con = mysql.createPool({
   multipleStatements: true,
 });
 
-//NEW MYSQL Connection
-const conTC = mysql.createPool({
-  host: process.env.DB_SERVER_HOST,
-  user: process.env.DB_SERVER_USER,
-  port: process.env.DB_SERVER_PORT,
-  password: process.env.DB_SERVER_PASS,
-  database: process.env.DB_SERVER_DB,
-  multipleStatements: true,
-});
-
-// con.connect((err) => {
-//   if (!err) {
-//     console.log("Succesfully connected");
-//   }
+// //Trinitycore MYSQL Connection
+// const conTC = mysql.createPool({
+//   host: process.env.DB_SERVER_HOST,
+//   user: process.env.DB_SERVER_USER,
+//   port: process.env.DB_SERVER_PORT,
+//   password: process.env.DB_SERVER_PASS,
+//   database: process.env.DB_SERVER_DB,
+//   multipleStatements: true,
 // });
 
-// conTC.connect((err) => {
-//   if (!err) {
-//     console.log("Succesfully connected");
-//   }
+// Cron
+// cron.schedule("* * * * *", () => {
+//   conTC.query(`UPDATE realmlist SET population = 20`, (err, result) => {
+//     if (err) {
+//       console.log(err);
+//     }
+//   });
 // });
-
-cron.schedule("* * * * *", () => {
-  conTC.query(`UPDATE realmlist SET population = 20`, (err, result) => {
-    if (err) {
-      console.log(err);
-    }
-  });
-});
 
 //email Config
 const transporter = nodemailer.createTransport({
