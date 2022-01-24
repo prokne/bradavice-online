@@ -60,17 +60,17 @@ const conTC = mysql.createPool({
   multipleStatements: true,
 });
 
-con.connect((err) => {
-  if (!err) {
-    console.log("Succesfully connected");
-  }
-});
+// con.connect((err) => {
+//   if (!err) {
+//     console.log("Succesfully connected");
+//   }
+// });
 
-conTC.connect((err) => {
-  if (!err) {
-    console.log("Succesfully connected");
-  }
-});
+// conTC.connect((err) => {
+//   if (!err) {
+//     console.log("Succesfully connected");
+//   }
+// });
 
 cron.schedule("* * * * *", () => {
   conTC.query(`UPDATE realmlist SET population = 20`, (err, result) => {
