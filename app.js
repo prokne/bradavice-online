@@ -10,6 +10,7 @@ const flash = require("req-flash");
 const session = require("express-session");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
+const cron = require("node-cron");
 
 //Crypto
 const sha1 = require("sha1");
@@ -47,6 +48,30 @@ const con = mysql.createPool({
   database: process.env.DB_DB,
   port: process.env.DB_PORT,
   multipleStatements: true,
+});
+
+//NEW MYSQL Connection
+const conTC = mysql.createConnection({
+  host: process.env.DB_SERVER_HOST,
+  user: process.env.DB_SERVER_USER,
+  port: process.env.DB_SERVER_PORT,
+  password: process.env.DB_SERVER_PASS,
+  database: process.env.DB_SERVER_DB,
+  multipleStatements: true,
+});
+
+conTC.connect((err) => {
+  if (!err) {
+    console.log("Succesfully connected");
+  }
+});
+
+cron.schedule("* * * * *", () => {
+  conTC.query(`UPDATE realmlist SET population = 20`, (err, result) => {
+    if (err) {
+      console.log(err);
+    }
+  });
 });
 
 //email Config
