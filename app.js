@@ -51,13 +51,19 @@ const con = mysql.createPool({
 });
 
 //NEW MYSQL Connection
-const conTC = mysql.createConnection({
+const conTC = mysql.createPool({
   host: process.env.DB_SERVER_HOST,
   user: process.env.DB_SERVER_USER,
   port: process.env.DB_SERVER_PORT,
   password: process.env.DB_SERVER_PASS,
   database: process.env.DB_SERVER_DB,
   multipleStatements: true,
+});
+
+con.connect((err) => {
+  if (!err) {
+    console.log("Succesfully connected");
+  }
 });
 
 conTC.connect((err) => {
