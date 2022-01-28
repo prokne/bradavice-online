@@ -51,23 +51,50 @@ const con = mysql.createPool({
 });
 
 // //Trinitycore MYSQL Connection
-// const conTC = mysql.createPool({
-//   host: process.env.DB_SERVER_HOST,
-//   user: process.env.DB_SERVER_USER,
-//   port: process.env.DB_SERVER_PORT,
-//   password: process.env.DB_SERVER_PASS,
-//   database: process.env.DB_SERVER_DB,
-//   multipleStatements: true,
-// });
+const conTC = mysql.createPool({
+  host: process.env.DB_SERVER_HOST,
+  user: process.env.DB_SERVER_USER,
+  port: process.env.DB_SERVER_PORT,
+  password: process.env.DB_SERVER_PASS,
+  database: process.env.DB_SERVER_DB,
+  multipleStatements: true,
+});
 
-// Cron
-// cron.schedule("* * * * *", () => {
-//   conTC.query(`UPDATE realmlist SET population = 20`, (err, result) => {
-//     if (err) {
-//       console.log(err);
-//     }
-//   });
-// });
+//Cron - allow players to connect - runs every thursday, thuesday and saturday at 17:50
+cron.schedule("0 0/1 * 1/1 * ? *", () => {
+  conTC.query(
+    `UPDATE realmlist SET allowedSecurityLevel = 0`,
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      }
+    }
+  );
+});
+
+cron.schedule("0 50 17 ? * TUE,THU,SAT *", () => {
+  conTC.query(
+    `UPDATE realmlist SET allowedSecurityLevel = 0`,
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      }
+    }
+  );
+});
+
+//Cron - allow players to connect - runs every thursday, thuesday and saturday at 23:50
+
+cron.schedule("0 50 23 ? * TUE,THU,SAT *", () => {
+  conTC.query(
+    `UPDATE realmlist SET allowedSecurityLevel = 1`,
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      }
+    }
+  );
+});
 
 //email Config
 const transporter = nodemailer.createTransport({
