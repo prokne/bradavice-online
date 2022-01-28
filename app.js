@@ -61,17 +61,6 @@ const conTC = mysql.createPool({
 });
 
 //Cron - allow players to connect - runs every thursday, thuesday and saturday at 17:50
-cron.schedule("* * * * *", () => {
-  conTC.query(
-    `UPDATE realmlist SET allowedSecurityLevel = 0`,
-    (err, result) => {
-      if (err) {
-        console.log(err);
-      }
-    }
-  );
-});
-
 cron.schedule("50 18 * * TUE,THU,SAT", () => {
   conTC.query(
     `UPDATE realmlist SET allowedSecurityLevel = 0`,
