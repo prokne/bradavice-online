@@ -73,7 +73,6 @@ cron.schedule("50 18 * * TUE,THU,SAT", () => {
 });
 
 //Cron - allow players to connect - runs every thursday, thuesday and saturday at 23:50
-
 cron.schedule("50 23 * * TUE,THU,SAT", () => {
   conTC.query(
     `UPDATE realmlist SET allowedSecurityLevel = 1`,
