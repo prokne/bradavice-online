@@ -344,7 +344,7 @@ app.post("/login", function (req, res, next) {
 //   res.render("register", { errorMessage: "" });
 // });
 
-app.post("/register", (req, res) => {
+/*app.post("/register", (req, res) => {
   con.query(
     "SELECT * FROM users WHERE username = ?",
     [req.body.username],
@@ -377,9 +377,9 @@ app.post("/register", (req, res) => {
       }
     }
   );
-});
+});*/
 
-/*app.get("/game-registration", (req, res) => {
+app.get("/game-registration", (req, res) => {
   res.render("game-registration", { errorMessage: "" });
 });
 
@@ -489,7 +489,7 @@ app.post("/game-registration", (req, res) => {
       }
     });
   }
-});*/
+});
 
 app.get("/admin", (req, res) => {
   if (req.isAuthenticated()) {
