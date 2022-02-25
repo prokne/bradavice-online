@@ -468,7 +468,9 @@ app.post("/game-registration", (req, res) => {
                     V mezičase si, prosíme, nastuduj rubriku „Jak se připojit“ <a href="http://bradavice-online.cz/how-to-connect">zde</a>.
                     Připojit se můžeš také na náš Discord: <a href="https://discord.gg/wqkH3mdPu5">zde</a>, kde můžeš o hře diskutovat a kde rádi zodpovíme tvé dotazy.</p></br>
                     Rovněž si můžeš přečíst naše články o tom <a href="https://bradavice-online.cz/how-to-play-rp">jak hrát RP</a> nebo si něco přečíst 
-                    <a href="https://bradavice-online.cz/lore">o našem lore</a>.
+                    <a href="https://bradavice-online.cz/lore">o našem lore.</a> Jakmile budeš mít nainstalovanou hru, můžeš se též přihlásit pod zadaným
+                    loginem a heslem, nastavit addony, vyzkoušet, zda vše fungovat, a také vytvořit postavu. Do samotného kouzelnického světa se ale dostaneš až
+                    v novém školním roce.</p>
                     <p>Budeme se těšit na viděnou v Bradavicích.</p></br>
                     <p>S pozdravem</p>
                     <p>GM tým Bradavice online</p>`,
