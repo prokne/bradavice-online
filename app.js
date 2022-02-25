@@ -344,7 +344,7 @@ app.post("/login", function (req, res, next) {
 //   res.render("register", { errorMessage: "" });
 // });
 
-/*app.post("/register", (req, res) => {
+app.post("/register", (req, res) => {
   con.query(
     "SELECT * FROM users WHERE username = ?",
     [req.body.username],
@@ -377,7 +377,7 @@ app.post("/login", function (req, res, next) {
       }
     }
   );
-});*/
+});
 
 /*app.get("/game-registration", (req, res) => {
   res.render("game-registration", { errorMessage: "" });
