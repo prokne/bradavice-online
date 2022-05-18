@@ -70,7 +70,7 @@ const conTC = mysql.createPool({
 // });
 
 //Cron - allow players to connect - runs every thursday, thuesday and saturday at 17:50
-cron.schedule("50 17 * * TUE,THU,SAT", () => {
+/*cron.schedule("50 17 * * TUE,THU,SAT", () => {
   conTC.query(
     `UPDATE realmlist SET allowedSecurityLevel = 0`,
     (err, result) => {
@@ -91,7 +91,7 @@ cron.schedule("50 23 * * TUE,THU,SAT", () => {
       }
     }
   );
-});
+});*/
 
 //email Config
 const transporter = nodemailer.createTransport({
