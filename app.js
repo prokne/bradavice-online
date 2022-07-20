@@ -577,52 +577,52 @@ app.get("/change-password", (req, res) => {
   res.render("change-password", { errorMessage: "" });
 });
 
-// app.post("/change-password", (req, res) => {
-//   const login = req.body.login.toUpperCase();
-//   const pass1 = req.body.password;
-//   const pass2 = req.body.password2;
+app.post("/change-password", (req, res) => {
+  const login = req.body.login.toUpperCase();
+  const pass1 = req.body.password;
+  const pass2 = req.body.password2;
 
-//   if (pass1.length > 16) {
-//     res.render("change-password", {
-//       errorMessage: "Maximální délka hesla je 16 znaků",
-//     });
-//   } else if (pass1 != pass2) {
-//     res.render("Change-password", {
-//       errorMessage: "Hesla se neshodují",
-//     });
-//   } else {
-//     //Check wheather acc with stated login exists
-//     const query = "SELECT * FROM account WHERE username = ?";
-//     conTC.query(query, login, (err, result) => {
-//       if (err) {
-//         console.log(err);
-//       } else {
-//         console.log(result);
-//       }
-//       if (result.length == 0) {
-//         res.render("Change-password", {
-//           errorMessage: "Herní účest se zadaným loginem neexistuje.",
-//         });
-//       }
-//       if (result.length > 0) {
-//         console.log("tady");
-//         const [salt, verifier] = encryptPass(login, pass1);
-//         console.log(salt, verifier);
-//         conTC.query(
-//           "UPDATE account SET salt=?, verifier=? WHERE username = ?",
-//           [salt, verifier, login],
-//           (err, result) => {
-//             if (err) {
-//               console.log(err);
-//             } else {
-//               res.render("change-password-succes");
-//             }
-//           }
-//         );
-//       }
-//     });
-//   }
-// });
+  if (pass1.length > 16) {
+    res.render("change-password", {
+      errorMessage: "Maximální délka hesla je 16 znaků",
+    });
+  } else if (pass1 != pass2) {
+    res.render("Change-password", {
+      errorMessage: "Hesla se neshodují",
+    });
+  } else {
+    //Check wheather acc with stated login exists
+    const query = "SELECT * FROM account WHERE username = ?";
+    conTC.query(query, login, (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(result);
+      }
+      if (result.length == 0) {
+        res.render("Change-password", {
+          errorMessage: "Herní účest se zadaným loginem neexistuje.",
+        });
+      }
+      if (result.length > 0) {
+        console.log("tady");
+        const [salt, verifier] = encryptPass(login, pass1);
+        console.log(salt, verifier);
+        conTC.query(
+          "UPDATE account SET salt=?, verifier=? WHERE username = ?",
+          [salt, verifier, login],
+          (err, result) => {
+            if (err) {
+              console.log(err);
+            } else {
+              res.render("change-password-succes");
+            }
+          }
+        );
+      }
+    });
+  }
+});
 
 app.listen(process.env.PORT, () => {
   console.log("Server has started on port 3000");
