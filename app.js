@@ -70,28 +70,28 @@ const conTC = mysql.createPool({
 // });
 
 //Cron - allow players to connect - runs every thursday, thuesday and saturday at 17:50
-cron.schedule("50 17 * * TUE,THU,SAT", () => {
-  conTC.query(
-    `UPDATE realmlist SET allowedSecurityLevel = 0`,
-    (err, result) => {
-      if (err) {
-        console.log(err);
-      }
-    }
-  );
-});
+// cron.schedule("50 17 * * TUE,THU,SAT", () => {
+//   conTC.query(
+//     `UPDATE realmlist SET allowedSecurityLevel = 0`,
+//     (err, result) => {
+//       if (err) {
+//         console.log(err);
+//       }
+//     }
+//   );
+// });
 
-//Cron - allow players to connect - runs every thursday, thuesday and saturday at 23:50
-cron.schedule("50 23 * * TUE,THU,SAT", () => {
-  conTC.query(
-    `UPDATE realmlist SET allowedSecurityLevel = 1`,
-    (err, result) => {
-      if (err) {
-        console.log(err);
-      }
-    }
-  );
-});
+// //Cron - allow players to connect - runs every thursday, thuesday and saturday at 23:50
+// cron.schedule("50 23 * * TUE,THU,SAT", () => {
+//   conTC.query(
+//     `UPDATE realmlist SET allowedSecurityLevel = 1`,
+//     (err, result) => {
+//       if (err) {
+//         console.log(err);
+//       }
+//     }
+//   );
+// });
 
 //email Config
 const transporter = nodemailer.createTransport({
